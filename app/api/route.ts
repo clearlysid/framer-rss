@@ -31,12 +31,8 @@ export async function GET(request: Request) {
 
 	const body = await rss(url);
 
-	return Response.json({
-		body,
-		headers: {
-				'Content-Type': body ? 'application/rss+xml' : 'text/plain',
-		},
-		isBase64Encoded: false,
-		statusCode: body ? 200 : 400,
-	})
+	return new Response(body, {
+    status: 200,
+    headers: { 'Content-Type': 'application/rss+xml' }
+  })
 }
