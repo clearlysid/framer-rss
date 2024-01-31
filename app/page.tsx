@@ -3,7 +3,7 @@ export default function Home() {
     <div className="root">
       <header>
         <h1>Framer RSS</h1>
-        <p>If you have a blog built on Framer, this tool can generate an RSS feed for you to share.</p>
+        <p>If you have a Framer blog, this tool can generate an RSS feed for it.</p>
         <p>Made super late at night by <a href="https://www.twitter.com/clearlysid">@clearlysid</a>, for use on <a href="https://www.helmer.app/blog">Helmer's Blog</a>.</p>
       </header>
 
@@ -13,8 +13,6 @@ export default function Home() {
         <input type="text" defaultValue={"https://www.helmer.app/blog"} />
         <input type="submit" value="Create Feed" />
       </form>
-
-
 
       <hr />
 
