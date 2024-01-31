@@ -10,7 +10,14 @@ body {
 	padding: 0;
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
+.root {
+	max-width: 640px;
+	padding: 4rem 1rem;
+	margin: 0 auto;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #eee;
+	margin: 2rem 0;
 }
