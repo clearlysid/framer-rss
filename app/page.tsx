@@ -32,7 +32,7 @@ export default function Home() {
 
       <h2>How it works</h2>
 
-      <p>This is small app that scrapes your Frame site every now and then, and generates the RSS feed to serve as needed. It is still a prototype and not recommended for production / sensitive use.</p>
+      <p>This is small app that scrapes your Framer site every now and then, and generates the RSS feed to serve as needed. It is still a prototype and not recommended for production / sensitive use.</p>
 
       <p>The code is <a href="https://github.com/clearlysid/framer-rss" target="_blank">open source</a>, in case you'd like to contribute or self-host. Consider donating via <a href="https://github.com/sponsors/clearlysid" target="_blank">Github Sponsors</a> if it helped.</p>
 
