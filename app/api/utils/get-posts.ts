@@ -1,11 +1,11 @@
 import { fetchSite } from '../utils/fetch-site';
-import { formatDate } from '../utils/format-date';
 
 type Article = {
 	date: string;
 	title: string;
 	description: string;
 	link: string;
+	image?: string;
 }
 
 export const getPosts = async (url: string): Promise<Article[]> => {
@@ -16,26 +16,27 @@ export const getPosts = async (url: string): Promise<Article[]> => {
 	
 	console.log(`Found ${articles.length} articles!`)
 	
-	// TODO: get the title, date, and type from each link
+	// Get each article's details
 	const posts = articles.map((article) => {
 		const $article = $(article);
 
 		const link = $article.attr('href') ?? '';
 		const title = $article.children().find('h3').text();
+		const image = $article.find('img').attr('src');
 
 		const description = $article.find('p').toArray().reduce((longest, p) =>
 			($(p).text().length > longest.length) ? $(p).text() : longest, ''
 		);
 
+		// TODO: improve this
 		// find p tag that contains a year
-		const date = $article.find('p').toArray().filter((p) => {
-			return $(p).text().includes('2024')
-		})
+		const dateTag = $article.find('p').toArray().filter((p) => $(p).text().includes('2024'))
+		const date = $(dateTag).text()
 
 		return {
-			// date: formatDate(date, 'MMMM d, yyyy'),
-			date: "",
+			date,
 			title,
+			image,
 			description,
 			link: new URL(link, url).toString(),
 	  };
