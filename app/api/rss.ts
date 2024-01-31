@@ -1,3 +1,4 @@
+import { Feed } from "feed";
 import { getPosts } from './utils/get-posts';
 import { fetchSite } from './utils/fetch-site';
 
@@ -6,35 +7,44 @@ export const rss = async (url: string): Promise<string> => {
     // Fetch the site with Cheerio
     const $ = await fetchSite(url);
 
-    // Extract title and description of page
+    // Extract metadata from Framer site
     const title = $('title').first().text();
-	const description = $('meta[name="description"]').first().attr('content');
+    const image = $('meta[property="og:image"]').attr('content');
+    const favicon = $('link[rel="icon"]').attr('href');
+	const description = $('meta[name="description"]').attr('content');
+    const lastUpdated = $('#main').attr('data-framer-ssr-released-at');
+
+    // convert the last updated date to a Date object
+    const updated = new Date(lastUpdated as string);
+    const copyright = "©" + updated.getFullYear();
+
+    // Create a new feed
+    const feed = new Feed({
+        title,
+        image,
+        favicon,
+        description,
+        updated,
+        copyright,
+        id: url,
+        link: url,
+        generator: "framer-rss"
+    });
 
     // Extract the posts
     const posts = await getPosts(url);
+    // console.log(posts)
 
-    return `
-        <?xml version="1.0" encoding="UTF-8" ?>
-        <rss version="2.0">
-            <channel>
-                <title>${title}</title>
-                <description>${description}</description>
-                <link>${url}</link>
-                <ttl>720</ttl>
-                ${posts
-                    .map(
-                        (post) => `
-                    <item>
-                        <title>${post.title}</title>
-                        <description>${post.description}</description>
-                        <guid>${post.link}</guid>
-                        <link>${post.link}</link>
-                        <pubDate>${post.date}</pubDate>
-                    </item>
-                `,
-                    )
-                    .join('')}
-            </channel>
-        </rss>
-    `.trim();
+    posts.forEach(post => {
+        feed.addItem({
+            title: post.title,
+            id: post.link,
+            link: post.link,
+            description: post.description,
+            date: new Date(post.date),
+            image: post.image,
+        })
+    })
+
+    return feed.rss2();
 };
