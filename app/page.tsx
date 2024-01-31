@@ -1,3 +1,5 @@
+import Form from "./form";
+
 export default function Home() {
   return (
     <div className="root">
@@ -7,12 +9,7 @@ export default function Home() {
         <p>Made super late at night by <a href="https://www.twitter.com/clearlysid">@clearlysid</a>, for use on <a href="https://www.helmer.app/blog">Helmer's Blog</a>.</p>
       </header>
 
-      <hr />
-
-      <form action="">
-        <input type="text" placeholder={"https://www.helmer.app/blog"} required />
-        <input type="submit" value="Create Feed" />
-      </form>
+      <Form />
 
       <hr />
 
