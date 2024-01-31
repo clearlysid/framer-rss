@@ -2,15 +2,25 @@ import { rss } from './rss';
 import { isFramerSite } from './utils/is-framer-site';
 
 export async function GET(request: Request) {
+	const { searchParams } = new URL(request.url)
+	const url = searchParams.get('site')
 
-	// TODO: get this from query param
-	const url = "https://www.helmer.app/blog";
+	if (!url) {
+		return Response.json({
+			body: "Missing 'site' query param",
+			headers: {
+					'Content-Type': 'text/plain',
+			},
+			isBase64Encoded: false,
+			statusCode: 400,
+		})
+	}
 
 	const isFramer = await isFramerSite(url);
 
 	if (!isFramer) {
 		return Response.json({
-			body: "Could not find a Framer site at the given URL",
+			body: "Could not find a Framer site at the given site",
 			headers: {
 					'Content-Type': 'text/plain',
 			},
