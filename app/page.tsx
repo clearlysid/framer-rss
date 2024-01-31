@@ -7,7 +7,7 @@ export default function Home() {
       <header>
         <h1>Framer RSS</h1>
         <p>If you have a Framer blog, this tool can generate an RSS feed for it.</p>
-        <p>Made super late at night by <a href="https://www.twitter.com/clearlysid">@clearlysid</a>, for use on <a href="https://www.helmer.app/blog">Helmer</a>.</p>
+        <p>Made super late at night by <a href="https://www.twitter.com/clearlysid">@clearlysid</a>, for use at Headout and Helmer.</p>
       </header>
 
       <hr />
