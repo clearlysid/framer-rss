@@ -10,7 +10,7 @@ export default function Home() {
       <hr />
 
       <form action="">
-        <input type="text" defaultValue={"https://www.helmer.app/blog"} />
+        <input type="text" placeholder={"https://www.helmer.app/blog"} required />
         <input type="submit" value="Create Feed" />
       </form>
 
@@ -22,7 +22,7 @@ export default function Home() {
         <li>Add the id <code>rss</code> to the Collection List component on your blog page</li>
         <li>Deploy your site</li>
         <li>Enter the URL of your site below</li>
-        <li>Click generate</li>
+        <li>Click "Create Feed"</li>
       </ol>
     </div>
   )

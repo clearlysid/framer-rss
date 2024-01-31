@@ -21,3 +21,18 @@ hr {
 	border-top: 1px solid #eee;
 	margin: 2rem 0;
 }
+
+form {
+	display: flex;
+	gap: 1rem;
+}
+
+input {
+	padding: 0.6em;
+	font-size: medium;
+	width: 100%;
+}
+
+input[type="submit"] {
+	width: auto;
+}
