@@ -37,3 +37,24 @@ input {
 input[type="submit"] {
 	width: auto;
 }
+
+img {
+	object-fit: cover;
+	border-radius: 0.2rem;
+	margin: 0.6rem;
+}
+
+.how-to {
+	display: flex;
+	flex-direction: row;
+}
+
+li {
+	margin-bottom: 0.4em;
+}
+
+code {
+	color: red;
+	background: rgb(255, 227, 227);
+	padding: 0.2em 0.4em;
+}
