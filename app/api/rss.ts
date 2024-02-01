@@ -1,17 +1,14 @@
 import { Feed } from "feed";
 import { getPosts } from './utils/get-posts';
-import { fetchSite } from './utils/fetch-site';
+import { CheerioAPI } from "cheerio";
 
-export const rss = async (url: string): Promise<string> => {
-
-    // Fetch the site with Cheerio
-    const $ = await fetchSite(url);
+export const rss = async ($: CheerioAPI, url: string): Promise<string> => {
 
     // Extract metadata from Framer site
     const title = $('title').first().text();
     const image = $('meta[property="og:image"]').attr('content');
     const favicon = $('link[rel="icon"]').attr('href');
-	const description = $('meta[name="description"]').attr('content');
+    const description = $('meta[name="description"]').attr('content');
     const lastUpdated = $('#main').attr('data-framer-ssr-released-at');
 
     // convert the last updated date to a Date object

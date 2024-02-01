@@ -1,13 +1,5 @@
-import { fetchSite } from './fetch-site';
+import { CheerioAPI } from 'cheerio';
 
-export const isFramerSite = async (url: string): Promise<boolean> => {
-	try {
-
-		const $ = await fetchSite(url);
-		return $('body').attr('class')?.startsWith('framer') ?? false;
-
-	} catch (e: any) {
-		console.error('Error:', e.message);
-		return false;
-	}
+export const isFramerSite = async ($: CheerioAPI): Promise<boolean> => {
+	return $('body').attr('class')?.startsWith('framer') ?? false
 };
