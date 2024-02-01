@@ -13,7 +13,7 @@ export default function Home() {
 
       <hr />
 
-      <h2>How to use</h2>
+      <h2>Usage</h2>
       <ol>
         <li>In your Framer project, add the id <code>rss</code> to your <b>Collection List</b> component.
           <div className="grid">
