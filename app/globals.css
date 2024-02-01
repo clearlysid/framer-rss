@@ -2,17 +2,25 @@
 	box-sizing: border-box;
 }
 
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
 html,
 body {
 	max-width: 100vw;
 	overflow-x: hidden;
 	margin: 0;
 	padding: 0;
+	font-size: 18px;
+	line-height: 1.6em;
 }
 
 .root {
 	max-width: 640px;
-	padding: 4rem 1rem;
+	padding: 3rem 1rem;
 	margin: 0 auto;
 }
 
@@ -38,23 +46,32 @@ input[type="submit"] {
 	width: auto;
 }
 
-img {
+.grid > img {
 	object-fit: cover;
-	border-radius: 0.2rem;
+	border-radius: 0.4rem;
 	margin: 0.6rem;
+	width: 100%;
+	height: auto;
 }
 
-.how-to {
-	display: flex;
-	flex-direction: row;
-}
-
-li {
-	margin-bottom: 0.4em;
+.grid {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 0.4rem;
+	width: fit-content;
 }
 
 code {
-	color: red;
-	background: rgb(255, 227, 227);
-	padding: 0.2em 0.4em;
+	background: rgba(0, 0, 0, 0.1);
+	padding: 0.1em 0.4em;
+}
+
+@media screen and (max-width: 640px) {
+	body {
+		font-size: 16px;
+	}
+
+	.root {
+		padding: 1rem;
+	}
 }
