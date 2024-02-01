@@ -6,9 +6,9 @@ It is small server app that scrapes your Framer site every so often, generates t
 
 ## Other Notes
 
-This can reliably generate RSS for most Framer sites, but there are exceptions. We need to make some assumptions about your site to be able to extract details about each post (title, date, etc.). The exact mechanism to do this varies from site to site.
+This can generate RSS for most Framer sites but there are exceptions. We need to make some assumptions about your site to be able to extract details about each post (title, date, etc.). The exact mechanism to do this varies from site to site.
 
-If it doesn't work on your site, I encourage you to open an issue on Github along with a link to it and I'll try to lend a hand.
+If it doesn't work on yours, I encourage you to open an issue on Github along with a link to your site and I'll try to lend a hand.
 
 If you'd like to contribute or self-host, the code is open source. Consider donating via Github Sponsors if it helped, that way I can cover the server costs if any.
 
