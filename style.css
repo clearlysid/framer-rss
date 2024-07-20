@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	font-family: sans-serif;
 }
 
 ul,
@@ -19,7 +20,7 @@ body {
 }
 
 .root {
-	max-width: 640px;
+	max-width: 680px;
 	padding: 3rem 1rem;
 	margin: 0 auto;
 }
@@ -74,4 +75,13 @@ code {
 	.root {
 		padding: 1rem;
 	}
+}
+
+.grid {
+	display: flex;
+	gap: 10px;
+}
+.grid img {
+	max-width: 200px;
+	max-height: 130px;
 }
