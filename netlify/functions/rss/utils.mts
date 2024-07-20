@@ -1,5 +1,7 @@
 import { Cheerio, CheerioAPI, load } from "cheerio";
+import { Feed } from "feed";
 
+// Fetch contents of a site
 export const fetchSite = async (url: string): Promise<CheerioAPI> => {
 	const response = await fetch(url);
 	const body = await response.text();
@@ -7,6 +9,7 @@ export const fetchSite = async (url: string): Promise<CheerioAPI> => {
 	return load(body);
 };
 
+// Check if the site is a Framer site
 export const isFramerSite = async ($: CheerioAPI): Promise<boolean> => {
 	return $("body").attr("class")?.startsWith("framer") ?? false;
 };
@@ -39,6 +42,7 @@ const getArticleTitle = ($article: Cheerio<any>) => {
 	}
 };
 
+// Get all the posts from the site
 export const getPosts = async (url: string): Promise<Article[]> => {
 	const $ = await fetchSite(url);
 
@@ -106,4 +110,51 @@ export const getPosts = async (url: string): Promise<Article[]> => {
 	// console.log(posts)
 
 	return posts;
+};
+
+// Create an RSS feed from the site
+export const createRssFeed = async (
+	$: CheerioAPI,
+	url: string
+): Promise<string> => {
+	// Extract metadata from Framer site
+	const title = $("title").first().text();
+	const image = $('meta[property="og:image"]').attr("content");
+	const favicon = $('link[rel="icon"]').attr("href");
+	const description = $('meta[name="description"]').attr("content");
+	const lastUpdated = $("#main").attr("data-framer-ssr-released-at");
+
+	// convert the last updated date to a Date object
+	const updated = new Date(lastUpdated as string);
+	const copyright = "©" + updated.getFullYear();
+
+	// Create a new feed
+	const feed = new Feed({
+		title,
+		image,
+		favicon,
+		description,
+		updated,
+		copyright,
+		id: url,
+		link: url,
+		generator: "framer-rss",
+	});
+
+	// Extract the posts
+	const posts = await getPosts(url);
+	// console.log(posts)
+
+	posts.forEach((post) => {
+		feed.addItem({
+			title: post.title,
+			id: post.link,
+			link: post.link,
+			description: post.description,
+			date: new Date(post.date!),
+			image: post.image,
+		});
+	});
+
+	return feed.rss2();
 };

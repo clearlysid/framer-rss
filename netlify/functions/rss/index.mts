@@ -1,6 +1,5 @@
 import type { Context, Config } from "@netlify/functions";
-import { rss } from "./rss.mjs";
-import { isFramerSite, fetchSite } from "./utils.mjs";
+import { isFramerSite, fetchSite, createRssFeed } from "./utils.mjs";
 
 export default async (req: Request, context: Context) => {
 	// Step 1: Get URL from query params
@@ -36,7 +35,7 @@ export default async (req: Request, context: Context) => {
 	}
 
 	// Step 3: Generate the RSS feed
-	const body = await rss($, url);
+	const body = await createRssFeed($, url);
 
 	// Step 4: Return the RSS feed
 	return new Response(body, {
@@ -50,5 +49,5 @@ export default async (req: Request, context: Context) => {
 };
 
 export const config: Config = {
-	path: "/rss",
+	path: "/api",
 };
