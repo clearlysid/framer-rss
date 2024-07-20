@@ -2,9 +2,9 @@ import type { Context, Config } from "@netlify/functions";
 import { rss } from "./rss.mjs";
 import { isFramerSite, fetchSite } from "./utils.mjs";
 
-export default async (request: Request, context: Context) => {
+export default async (req: Request, context: Context) => {
 	// Step 1: Get URL from query params
-	const { searchParams } = new URL(request.url);
+	const { searchParams } = new URL(req.url);
 	const url = searchParams.get("site");
 
 	console.log("api hit");
