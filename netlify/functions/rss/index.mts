@@ -1,11 +1,13 @@
 import type { Context, Config } from "@netlify/functions";
-import { rss } from "./rss";
-import { isFramerSite, fetchSite } from "./utils";
+import { rss } from "./rss.mjs";
+import { isFramerSite, fetchSite } from "./utils.mjs";
 
 export default async (request: Request, context: Context) => {
 	// Step 1: Get URL from query params
 	const { searchParams } = new URL(request.url);
 	const url = searchParams.get("site");
+
+	console.log("api hit");
 
 	// Return not found error if the 'site' query param is missing
 	if (!url) {
@@ -39,10 +41,12 @@ export default async (request: Request, context: Context) => {
 	// Step 4: Return the RSS feed
 	return new Response(body, {
 		status: 200,
-		headers: { "Content-Type": "application/rss+xml" },
+		headers: {
+			"Content-Type": "application/rss+xml",
+		},
 	});
 };
 
 export const config: Config = {
-	path: "/api/",
+	path: "/api",
 };

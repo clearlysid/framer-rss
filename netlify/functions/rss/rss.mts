@@ -1,5 +1,5 @@
 import { Feed } from "feed";
-import { getPosts } from "./utils";
+import { getPosts } from "./utils.mjs";
 import { CheerioAPI } from "cheerio";
 
 export const rss = async ($: CheerioAPI, url: string): Promise<string> => {
