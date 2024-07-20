@@ -43,6 +43,8 @@ export default async (request: Request, context: Context) => {
 		status: 200,
 		headers: {
 			"Content-Type": "application/rss+xml",
+			"Netlify-CDN-Cache-Control":
+				"public, durable, max-age=60, stale-while-revalidate=120",
 		},
 	});
 };
