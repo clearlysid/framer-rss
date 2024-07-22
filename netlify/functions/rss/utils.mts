@@ -131,13 +131,14 @@ export const createRssFeed = async (
 	// Create a new feed
 	const feed = new Feed({
 		title,
-		image,
-		favicon,
 		description,
-		updated,
-		copyright,
 		id: url,
 		link: url,
+		language: "en",
+		image,
+		favicon,
+		copyright,
+		updated,
 		generator: "framer-rss",
 	});
 
