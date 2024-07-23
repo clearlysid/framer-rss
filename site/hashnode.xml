@@ -3,32 +3,38 @@
 	xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"
 	version="2.0">
 	<channel>
-		<title><![CDATA[Helmer Blog]]></title>
-		<description><![CDATA[From the writer's desk..]]></description>
-		<link>https://www.helmer.app/blog</link>
+		<title><![CDATA[Olamiji's Blog]]></title>
+		<description><![CDATA[👋 Hi, I'm Olamiji Badmos, a Frontend Developer and Technical Writer. 🚀 I craft user-friendly web apps with ReactJs and VueJs. ✍️ Sharing tech knowledge through writing.
+]]></description>
+		<link>https://olamijibadmos.hashnode.dev</link>
 		<generator>RSS for Node</generator>
-		<lastBuildDate>Tue, 10 Jun 2024 14:05:21 GMT</lastBuildDate>
-		<atom:link href="https://framer-rss.netlify.app/hashnode.xml" rel="self"
+		<lastBuildDate>Tue, 23 Jul 2024 05:36:45 GMT</lastBuildDate>
+		<atom:link href="https://olamijibadmos.hashnode.dev/rss.xml" rel="self"
 			type="application/rss+xml" />
 		<language><![CDATA[en]]></language>
 		<ttl>60</ttl>
+		<atom:link rel="next" href="https://olamijibadmos.hashnode.dev/rss.xml?page=2" />
+		<atom:link rel="previous" href="https://olamijibadmos.hashnode.dev/rss.xml" />
 		<item>
-			<title><![CDATA[Rise of the GIFs]]></title>
+			<title><![CDATA[How to Create Modals in React with @headlessui/react]]></title>
 			<description><![CDATA[Have you ever found it difficult to create reusable and accessible dialog or modal components from scratch? Headless UI is a popular library that can help. In front-end development, modals or dialogs are essential components that provide information ...]]></description>
-			<link>https://www.helmer.app/blog/a-brief-history-of-gifs</link>
-			<guid isPermaLink="true">https://www.helmer.app/blog/a-brief-history-of-gifs</guid>
+			<link>https://olamijibadmos.hashnode.dev/how-to-create-modals-in-react-with-headlessuireact</link>
+			<guid isPermaLink="true">
+				https://olamijibadmos.hashnode.dev/how-to-create-modals-in-react-with-headlessuireact</guid>
 			<category><![CDATA[step-by-step guide]]></category>
-			<dc:creator><![CDATA[Shamika]]></dc:creator>
-			<pubDate>Fri, 10 May 2024 00:00:00 GMT</pubDate>
+			<dc:creator><![CDATA[Olamiji Badmos]]></dc:creator>
+			<pubDate>Mon, 22 Jul 2024 15:55:04 GMT</pubDate>
 		</item>
 		<item>
-			<title><![CDATA[Introducing Helmer]]></title>
+			<title><![CDATA[AI and Its Effects on Technical Writing]]></title>
 			<description><![CDATA[Artificial intelligence (AI) is everywhere in today's fast-paced world, changing industries left and right, including technical writing. How technical writers approach their work changes as AI technologies advance, presenting opportunities and challe...]]></description>
-			<link>https://www.helmer.app/blog/story</link>
-			<guid isPermaLink="true">https://www.helmer.app/blog/story</guid>
+			<link>https://olamijibadmos.hashnode.dev/ai-and-its-effects-on-technical-writing</link>
+			<guid isPermaLink="true">
+				https://olamijibadmos.hashnode.dev/ai-and-its-effects-on-technical-writing</guid>
 			<category><![CDATA[Technical writing ]]></category>
-			<dc:creator><![CDATA[Siddharth]]></dc:creator>
-			<pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate>
+			<dc:creator><![CDATA[Olamiji Badmos]]></dc:creator>
+			<pubDate>Mon, 27 May 2024 11:16:31 GMT</pubDate>
 		</item>
+
 	</channel>
 </rss>
