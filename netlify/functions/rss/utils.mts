@@ -115,7 +115,8 @@ export const getPosts = async (url: string): Promise<Article[]> => {
 // Create an RSS feed from the site
 export const createRssFeed = async (
 	$: CheerioAPI,
-	url: string
+	url: string,
+	requestUrl: string
 ): Promise<string> => {
 	// Extract metadata from Framer site
 	const title = $("title").first().text();
@@ -140,6 +141,7 @@ export const createRssFeed = async (
 		copyright,
 		updated,
 		generator: "framer-rss",
+		feed: requestUrl,
 	});
 
 	// Extract the posts
@@ -153,7 +155,6 @@ export const createRssFeed = async (
 			link: post.link,
 			description: post.description,
 			date: new Date(post.date!),
-			image: post.image,
 		});
 	});
 

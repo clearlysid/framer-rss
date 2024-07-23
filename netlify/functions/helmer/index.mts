@@ -3,6 +3,7 @@ import { isFramerSite, fetchSite, createRssFeed } from "../rss/utils.mjs";
 
 export default async (req: Request, context: Context) => {
 	// Step 1: Specify blog URL
+	const requestUrl = req.url;
 	const url = "https://www.helmer.app/blog";
 
 	// Step 2: Fetch the site and check if it's a Framer site
@@ -20,7 +21,7 @@ export default async (req: Request, context: Context) => {
 	}
 
 	// Step 3: Generate the RSS feed
-	const body = await createRssFeed($, url);
+	const body = await createRssFeed($, url, requestUrl);
 
 	// Step 4: Return the RSS feed
 	return new Response(body, {

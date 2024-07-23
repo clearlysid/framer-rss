@@ -3,7 +3,8 @@ import { isFramerSite, fetchSite, createRssFeed } from "./utils.mjs";
 
 export default async (req: Request, context: Context) => {
 	// Step 1: Get URL from query params
-	const { searchParams } = new URL(req.url);
+	const requestUrl = req.url;
+	const { searchParams } = new URL(requestUrl);
 	const url = searchParams.get("site");
 
 	console.log("api hit");
@@ -35,7 +36,7 @@ export default async (req: Request, context: Context) => {
 	}
 
 	// Step 3: Generate the RSS feed
-	const body = await createRssFeed($, url);
+	const body = await createRssFeed($, url, requestUrl);
 
 	// Step 4: Return the RSS feed
 	return new Response(body, {
