@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Helmer Blog</title>
+		<link>https://www.helmer.app/blog</link>
+		<description>From the writer's desk..</description>
+		<lastBuildDate>Tue, 11 Jun 2024 14:05:21 GMT</lastBuildDate>
+		<docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+		<generator>framer-rss</generator>
+		<language>en</language>
+		<image>
+			<title>Helmer Blog</title>
+			<url>https://framerusercontent.com/images/G7KcRAEgtVBntZmP6XYZVJwl6Ew.png</url>
+			<link>https://www.helmer.app/blog</link>
+		</image>
+		<copyright>©2024</copyright>
+		<atom:link href="https://framer-rss.netlify.app/api?site=https://www.helmer.app/blog" rel="self"
+			type="application/rss+xml" />
+		<item>
+			<title><![CDATA[Rise of the GIFs]]></title>
+			<link>https://www.helmer.app/blog/a-brief-history-of-gifs</link>
+			<guid>https://www.helmer.app/blog/a-brief-history-of-gifs</guid>
+			<pubDate>Fri, 10 May 2024 00:00:00 GMT</pubDate>
+		</item>
+		<item>
+			<title><![CDATA[Introducing Helmer]]></title>
+			<link>https://www.helmer.app/blog/story</link>
+			<guid>https://www.helmer.app/blog/story</guid>
+			<pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate>
+		</item>
+	</channel>
+</rss>
